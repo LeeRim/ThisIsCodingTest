@@ -1,8 +1,15 @@
 package com.coding.test.thisIsCoTe.greedy;
 
+import com.coding.test.thisIsCoTe.SpringConfig;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 
+@Component
 public class Solution3 {
+
     public int solution(int[][] nums) {
 
         int max = 0;
@@ -18,7 +25,10 @@ public class Solution3 {
     }
 
     public static void main(String[] args) {
-        Solution3 sol = new Solution3();
+        ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
+
+        Solution3 sol = ac.getBean(Solution3.class);
+
         sol.solution(new int[][] {{3, 1, 2}, {4, 1, 4}, {2, 2, 2}});
         sol.solution(new int[][] {{7, 3, 1, 8}, {3, 3, 3, 4}});
     }

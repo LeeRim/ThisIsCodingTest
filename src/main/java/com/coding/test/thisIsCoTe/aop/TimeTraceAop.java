@@ -8,16 +8,15 @@ import org.aspectj.lang.annotation.Aspect;
 public class TimeTraceAop {
 
     @Around("execution(* com.coding.test.thisIsCoTe..*(..)) && !target(com.coding.test.thisIsCoTe.SpringConfig)")
-//    @Around("execution(* com.hello.hellospring..*(..))")
     public Object execute(ProceedingJoinPoint joinPoint) throws Throwable{
         long start = System.currentTimeMillis();
-        System.out.println("start: " + joinPoint.toString());
+        System.out.println("start: " + joinPoint.toShortString());
         try {
             return joinPoint.proceed();
         } finally {
             long finish = System.currentTimeMillis();
             long timeMs = finish - start;
-            System.out.println("end: " + joinPoint.toString() + " " + timeMs + "ms");
+            System.out.println("end: " + timeMs + "ms");
         }
     }
 }

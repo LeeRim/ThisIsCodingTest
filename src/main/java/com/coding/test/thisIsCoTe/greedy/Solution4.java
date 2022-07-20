@@ -1,9 +1,12 @@
 package com.coding.test.thisIsCoTe.greedy;
 
+import com.coding.test.thisIsCoTe.SpringConfig;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 
+@Component
 public class Solution4 {
     public int solution(int n, int k) {
 
@@ -23,7 +26,10 @@ public class Solution4 {
     }
 
     public static void main(String[] args) {
-        Solution4 sol = new Solution4();
+        ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
+
+        Solution4 sol = ac.getBean(Solution4.class);
+
         sol.solution(17, 4);
         sol.solution(25, 3);
     }

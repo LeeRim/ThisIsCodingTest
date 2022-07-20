@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 
 @Component
-public class Solution3 {
+public class Greedy3 {
 
     public int solution(int[][] nums) {
 
@@ -27,7 +27,7 @@ public class Solution3 {
     public static void main(String[] args) {
         ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
 
-        Solution3 sol = ac.getBean(Solution3.class);
+        Greedy3 sol = ac.getBean(Greedy3.class);
 
         sol.solution(new int[][] {{3, 1, 2}, {4, 1, 4}, {2, 2, 2}});
         sol.solution(new int[][] {{7, 3, 1, 8}, {3, 3, 3, 4}});

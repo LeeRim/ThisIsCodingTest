@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class Solution4 {
+public class Greedy4 {
     public int solution(int n, int k) {
 
         int count = 0;
@@ -28,7 +28,7 @@ public class Solution4 {
     public static void main(String[] args) {
         ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
 
-        Solution4 sol = ac.getBean(Solution4.class);
+        Greedy4 sol = ac.getBean(Greedy4.class);
 
         sol.solution(17, 4);
         sol.solution(25, 3);

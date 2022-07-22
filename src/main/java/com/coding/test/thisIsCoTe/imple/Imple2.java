@@ -5,6 +5,15 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
+/**
+ * 시각
+ * n시 59분 59초까지 3이 포함된 경우의 수
+ *
+ * [입력 조건]
+ *  0 <= n <= 23
+ * [풀이시간] 15분
+ * [시간제한] 2초
+ */
 @Component
 public class Imple2 {
 

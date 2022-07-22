@@ -5,6 +5,17 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
+/**
+ * 상하좌우
+ * n*n 지도에서 상하좌우로 1칸씩 이동해 도작 좌표 구하기
+ * 시작은 1,1
+ *
+ * [입력 조건]
+ *  1 <= n <= 100
+ *  1 <= movw.len <= 100
+ * [풀이시간] 15분
+ * [시간제한] 1초
+ */
 @Component
 public class Imple1 {
 

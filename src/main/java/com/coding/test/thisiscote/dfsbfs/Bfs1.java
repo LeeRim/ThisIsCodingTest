@@ -1,6 +1,6 @@
-package com.coding.test.thisIsCoTe.dfsbfs;
+package com.coding.test.thisiscote.dfsbfs;
 
-import com.coding.test.thisIsCoTe.SpringConfig;
+import com.coding.test.thisiscote.SpringConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;

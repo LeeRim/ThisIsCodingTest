@@ -1,6 +1,6 @@
-package com.coding.test.thisIsCoTe.imple;
+package com.coding.test.thisiscote.implementation;
 
-import com.coding.test.thisIsCoTe.SpringConfig;
+import com.coding.test.thisiscote.SpringConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * [시간제한] 2초
  */
 @Component
-public class Imple2 {
+public class Implementation2 {
 
     public int solution(int n) {
         int in60 = 0;
@@ -65,7 +65,7 @@ public class Imple2 {
     public static void main(String[] args) {
         ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
 
-        Imple2 sol = ac.getBean(Imple2.class);
+        Implementation2 sol = ac.getBean(Implementation2.class);
 
         sol.solution(5);
         sol.solution(5);

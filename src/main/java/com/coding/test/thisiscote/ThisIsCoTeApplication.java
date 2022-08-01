@@ -1,4 +1,4 @@
-package com.coding.test.thisIsCoTe;
+package com.coding.test.thisiscote;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

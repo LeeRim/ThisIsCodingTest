@@ -1,6 +1,6 @@
-package com.coding.test.thisIsCoTe.greedy;
+package com.coding.test.thisiscote.greedy;
 
-import com.coding.test.thisIsCoTe.SpringConfig;
+import com.coding.test.thisiscote.SpringConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;

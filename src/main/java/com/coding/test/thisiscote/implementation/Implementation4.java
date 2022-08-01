@@ -1,6 +1,6 @@
-package com.coding.test.thisIsCoTe.imple;
+package com.coding.test.thisiscote.implementation;
 
-import com.coding.test.thisIsCoTe.SpringConfig;
+import com.coding.test.thisiscote.SpringConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
  * [시간제한] 1초
  */
 @Component
-public class Imple4 {
+public class Implementation4 {
 
     public int solution(int n, int m, int x, int y, int to, int[][] map) {
         int[] dx = {-1, 0, 1, 0};
@@ -88,7 +88,7 @@ public class Imple4 {
     public static void main(String[] args) {
         ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
 
-        Imple4 sol = ac.getBean(Imple4.class);
+        Implementation4 sol = ac.getBean(Implementation4.class);
 
         sol.solution(4, 4, 1, 1, 0, new int[][] {{1,1,1,1},{1,0,0,1},{1,1,0,1},{1,1,1,1}});
         sol.solution(4, 4, 1, 1, 0, new int[][] {{1,1,1,1},{1,0,0,1},{1,1,0,1},{1,1,1,1}});

@@ -1,6 +1,6 @@
-package com.coding.test.thisIsCoTe.imple;
+package com.coding.test.thisiscote.implementation;
 
-import com.coding.test.thisIsCoTe.SpringConfig;
+import com.coding.test.thisiscote.SpringConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
  * [시간제한] 1초
  */
 @Component
-public class Imple1 {
+public class Implementation1 {
 
     public String solution(int n, String move) {
         String[] moves = move.split(" ");
@@ -91,7 +91,7 @@ public class Imple1 {
     public static void main(String[] args) {
         ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
 
-        Imple1 sol = ac.getBean(Imple1.class);
+        Implementation1 sol = ac.getBean(Implementation1.class);
 
         sol.solution(5, "R R R U D D");
 //        sol.solution(5, "R R R U D D");

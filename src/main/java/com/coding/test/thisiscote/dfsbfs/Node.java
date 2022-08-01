@@ -1,4 +1,4 @@
-package com.coding.test.thisIsCoTe.dfsbfs;
+package com.coding.test.thisiscote.dfsbfs;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

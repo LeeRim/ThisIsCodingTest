@@ -1,4 +1,4 @@
-package com.coding.test.thisIsCoTe.aop;
+package com.coding.test.thisiscote.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

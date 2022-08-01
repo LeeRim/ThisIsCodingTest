@@ -1,22 +1,24 @@
 package com.coding.test.thisiscote.aop;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 
 @Aspect
+@Slf4j
 public class TimeTraceAop {
 
-    @Around("execution(* com.coding.test.thisIsCoTe..*(..)) && !target(com.coding.test.thisIsCoTe.SpringConfig)")
+    @Around("execution(* com.coding.test.thisiscote..*(..)) && !target(com.coding.test.thisiscote.SpringConfig)")
     public Object execute(ProceedingJoinPoint joinPoint) throws Throwable{
         long start = System.currentTimeMillis();
-        System.out.println("start: " + joinPoint.toShortString());
+        log.debug("start: {}", joinPoint.toShortString());
         try {
             return joinPoint.proceed();
         } finally {
             long finish = System.currentTimeMillis();
             long timeMs = finish - start;
-            System.out.println("end: " + timeMs + "ms");
+            log.debug("end: {}ms", timeMs);
         }
     }
 }

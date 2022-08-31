@@ -2,6 +2,7 @@ package com.coding.test.thisiscote.shortestpath;
 
 import com.coding.test.thisiscote.SpringConfig;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -78,14 +79,10 @@ public class ShortestPath1 {
 
     @ToString
     @Getter
+    @RequiredArgsConstructor
     class NodeDistance implements Comparable<NodeDistance> {
-        private int node;
-        private int distance;
-
-        public NodeDistance(int node, int distance) {
-            this.node = node;
-            this.distance = distance;
-        }
+        private final int node;
+        private final int distance;
 
         @Override
         public int compareTo(NodeDistance o) {

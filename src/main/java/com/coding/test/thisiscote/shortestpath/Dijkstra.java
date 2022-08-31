@@ -2,6 +2,7 @@ package com.coding.test.thisiscote.shortestpath;
 
 import com.coding.test.thisiscote.SpringConfig;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
@@ -17,9 +18,9 @@ import java.util.*;
 @Slf4j
 @Component
 public class Dijkstra {
+    private final int MAX = (int) 1e9;
 
-    public int[] byHeap(int node, int edge, int source, int[][] roads) {
-        final int MAX = (int) 1e9;
+    public int[] byHeap(int node, int edge, int start, int[][] roads) {
 
         Map<Integer, List<NodeDistance>> graph = new HashMap<>();
         for (int i = 0; i <= node; i++) {
@@ -34,49 +35,44 @@ public class Dijkstra {
         for (int i = 0; i < distances.length; i++) {
             distances[i] = MAX;
         }
-        distances[source] = 0;
+        distances[start] = 0;
 
         //BFS
         PriorityQueue<NodeDistance> distancesHeap = new PriorityQueue<>();
-        distancesHeap.offer(new NodeDistance(1, 0));
+        distancesHeap.offer(new NodeDistance(start, 0));
 
         while (!distancesHeap.isEmpty()) {
-            log.debug("\nDijkstra.byHeap : distancesHeap = {}", distancesHeap);
             NodeDistance now = distancesHeap.poll();
             int nowNode = now.getNode();
-            int nowDistance = now.getDistance();
+            int nowDistance = now.getDistance(); //출발지 ~ nowNode 거리
 
-            //nowNode까지의 최소거리가 nowDistance(now에 오기까지 총 거리)보다 작으면 nowNode는 이미 방문 이력이 있음
+            //distances[nowNode] > nowDistance인 경우는 없다
+            //nowNode까지의 최소거리가 nowDistance보다 작으면 nowNode는 이미 heap에 들어간적 있음
             if (distances[nowNode] < nowDistance) {
                 continue;
             }
 
+            //nowDistance가 현재 최소 거리 -> distances[nowNode] == nowDistance
             //nowNode에서 갈 수 있는 node(next)들의 최소거리 계산해서 distances[]에 입력
-            for (int i = 0; i < graph.get(nowNode).size(); i++) {
-                NodeDistance next = graph.get(nowNode).get(i);
-
+            for (NodeDistance next : graph.get(nowNode)) {
                 //다음 노드 최소거리 > 현재 노드 최소거리 + 현재 노드에서 다음 노드 거리
-                if (distances[next.getNode()] > distances[nowNode] + next.getDistance()) {
-                    distances[next.getNode()] = distances[nowNode] + next.getDistance();
+                if (distances[next.getNode()] > nowDistance + next.getDistance()) {
+                    distances[next.getNode()] = nowDistance + next.getDistance();
                     distancesHeap.offer(new NodeDistance(next.getNode(), distances[next.getNode()]));
                 }
             }
         }
 
-        log.debug("\nDijkstra.byHeap : distances = {}", Arrays.toString(distances));
+        System.out.println(Arrays.toString(distances));
         return distances;
     }
 
     @ToString
     @Getter
+    @RequiredArgsConstructor
     class NodeDistance implements Comparable<NodeDistance> {
-        private int node;
-        private int distance;
-
-        public NodeDistance(int node, int distance) {
-            this.node = node;
-            this.distance = distance;
-        }
+        private final int node;
+        private final int distance;
 
         @Override
         public int compareTo(NodeDistance o) {

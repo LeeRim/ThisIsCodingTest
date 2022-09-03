@@ -16,36 +16,38 @@ import java.util.Arrays;
 @Component
 public class DisjointSets {
 
-    int[] roots;
-
     public void solution(int node, int edge, int[][] graph) {
-        roots = new int[node + 1];
-        for (int i = 1; i <= node; i++) {
-            roots[i] = i;
-        }
+        int[] roots = new int[node + 1];
+        init(roots);
 
         for (int[] edge1 : graph) {
-            union(edge1[0], edge1[1]);
+            union(roots, edge1[0], edge1[1]);
         }
 
         for (int i = 1; i <= node; i++) {
-            System.out.print(findRoot(i) + " ");
+            System.out.print(findRoot(roots, i) + " ");
         }
         System.out.println();
 
         System.out.println(Arrays.toString(roots));
     }
 
-    public int findRoot(int n) {
+    public static void init(int[] roots) {
+        for (int i = 1; i < roots.length; i++) {
+            roots[i] = i;
+        }
+    }
+
+    public static int findRoot(int[] roots, int n) {
         if (roots[n] != n) {
-            roots[n] = findRoot(roots[n]);
+            roots[n] = findRoot(roots, roots[n]);
         }
         return roots[n];
     }
 
-    public void union(int a, int b) {
-        int aRoot = findRoot(a);
-        int bRoot = findRoot(b);
+    public static void union(int[] roots, int a, int b) {
+        int aRoot = findRoot(roots, a);
+        int bRoot = findRoot(roots, b);
         if (aRoot < bRoot) {
             roots[b] = aRoot;
         } else {

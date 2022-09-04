@@ -49,9 +49,9 @@ public class DisjointSets {
         int aRoot = findRoot(roots, a);
         int bRoot = findRoot(roots, b);
         if (aRoot < bRoot) {
-            roots[b] = aRoot;
+            roots[bRoot] = aRoot;
         } else {
-            roots[a] = bRoot;
+            roots[aRoot] = bRoot;
         }
     }
 
